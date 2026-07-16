@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'tasks/tasks.css' %}">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+
+    <header>
+        <h1>TaskEasy</h1>
+    </header>
+
+    <main>
+
+        <aside>
+
+            <a href="{% url 'task_create' %}">➕ Nova tarefa</a>
+
+            <a href="{% url 'task_list' %}">📋 Minhas tarefas</a>
+
+            <a href="">🚪 Sair</a>
+
+        </aside>
+
+        <section>
+
+            <h2>Minhas tarefas</h2>
+
+            {% if tarefas %}
+
+                {% for tarefa in tarefas %}
+
+                <div class="card">
+
+                    <h3>{{ tarefa.titulo }}</h3>
+
+                    <p>{{ tarefa.descricao }}</p>
+
+                    <p>Status:
+                        {% if tarefa.concluido %}
+                            Concluída
+                        {% else %}
+                            Pendente
+                        {% endif %}
+                    </p>
+
+                    <a href="{% url 'task_edit'  tarefa.id %}">Editar</a>
+
+                </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: #274c9b; 
+    height: 80px;            
+    display: flex;             
+    align-items: center;       
+    padding: 0 40px;          
+}
+header h1{
+    color: white;
+}
+main{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: calc(100vh - 80px);
+
+ /*img*/
+  background-image: url("img/fundo.png"); 
+    background-size: cover;                 
+    background-position: center;            
+    background-repeat: no-repeat;     
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    gap: 15px;
+    padding: 40px 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    background-color: #7e9bda;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+}
+form h2{
+text-align: center;
+color: white;
+}
+
+label, p{
+    font-weight: bold;
+    color: #374151;
+}
+
+a{
+ font-weight: bold;
+ color: #d3d7df;
+}
+
+input{
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #D1D5DB;  
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+button{
+    width: 30%;
+    padding: 12px;
+    background-color: #acb1be;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}

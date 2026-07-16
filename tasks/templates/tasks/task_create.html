@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'tasks/tasks.css' %}">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+
+    <header>
+        <h1>TaskEasy</h1>
+    </header>
+
+    <main>
+
+        <aside>
+
+            <a href="{% url 'task_create' %}">➕ Nova tarefa</a>
+
+            <a href="{% url 'task_list' %}">📋 Minhas tarefas</a>
+
+            <a href="">🚪 Sair</a>
+
+        </aside>
+
+            <section>
+
+            <h2>Nova tarefa</h2>
+
+            <div class="form-container">
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>Título</label>
+                        <input type="text" name="titulo">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Descrição</label>
+                        <textarea name="descricao"></textarea>
+                    </div>
+
+
+                    <button class="btn-criar">
+                        Criar tarefa
+                    </button>
+
+            </form>
+
+            </div>
+
+    </section>
+
+    </main>
+
+</body>
+</html>

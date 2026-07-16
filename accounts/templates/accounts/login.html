@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'accounts/accounts.css' %}">
+
+    <title>Login</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>TaskEasy</h1>
+    </header>
+
+
+    <main>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <h2>Login</h2>
+
+
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email"
+            >
+
+
+            <label for="senha">Senha</label>
+            <input 
+                type="password" 
+                id="senha" 
+                name="senha"
+            >
+
+
+            <button type="submit">
+                Entrar
+            </button>
+
+
+            <p>
+                não tem conta?
+                <a href="{% url 'register' %}">
+                    cadastre-se
+                </a>
+            </p>
+
+
+        </form>
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

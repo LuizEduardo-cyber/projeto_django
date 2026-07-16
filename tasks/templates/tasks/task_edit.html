@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tasks/tasks.css' %}">
+
+    <title>Editar Tarefa</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>TaskEasy</h1>
+    </header>
+
+
+    <main>
+
+        <aside>
+
+            <a href="{% url 'task_create' %}">➕ Nova tarefa</a>
+
+            <a href="{% url 'task_list' %}">📋 Minhas tarefas</a>
+
+            <a href="">🚪 Sair</a>
+
+        </aside>
+
+
+        <section>
+
+            <h2>Editar tarefa</h2>
+
+
+            <div class="form-container">
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+
+                    <div class="form-group">
+
+                        <label>Título</label>
+
+                        <input 
+                            type="text"
+                            name="titulo"
+                            value="{{ tarefa.titulo }}"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>Descrição</label>
+
+                        <textarea name="descricao">{{ tarefa.descricao }}</textarea>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>Status</label>
+
+                        <select name="concluido">
+
+                            <option value="False"
+                            {% if tarefa.concluido == False %}selected{% endif %}>
+                                Pendente
+                            </option>
+
+
+                            <option value="True"
+                            {% if tarefa.concluido == True %}selected{% endif %}>
+                                Concluída
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <button type="submit" class="btn-criar">
+                        Salvar alterações
+                    </button>
+
+                </form>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</body>
+</html>
